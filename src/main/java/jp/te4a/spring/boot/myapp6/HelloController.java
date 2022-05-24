@@ -23,13 +23,13 @@ public class HelloController {
     @RequestParam("publisher") String publisher,@RequestParam("price") String price) {
          ModelAndView mv = new ModelAndView("index");
          bookService.save(new BookBean(Integer.valueOf(id), title, writter, publisher, 
-                                                                                                                                 Integer.valueOf(price)));
+  Integer.valueOf(price)));
         StringBuffer buff = new StringBuffer();
         buff.append("<HR>");
         for(BookBean bean:bookService.findAll()) {
-            buff.append("ID:" + bean.getId() + "<BR>" + "タイトル:" + bean.getTitle() + 
+            buff.append("ID:" + bean.getId() + "<BR>" + "ﾀｲﾄﾙ:" + bean.getTitle() + 
            "<BR>"+ "著者:" + bean.getWritter() + "<BR>" + "出版社:" + bean.getPublisher() + 
-          "<BR>"+ "価格:" + bean.getPrice() + "<BR><HR>");
+           "<BR>"+ "価格:" + bean.getPrice() + "<BR><HR>");
         }
         mv.addObject("msg", buff.toString());
         return mv;
